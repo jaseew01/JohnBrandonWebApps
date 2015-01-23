@@ -19,18 +19,18 @@ Necessary Components
 =====================
 
 **Markdown**
-*Pellet gernerator
-  *randomly generates 2 ints for x,y coordinate of pellet
-  *manages number of pellets in window
-*Pellet
-  *will have a coordinate location
-*Snake
-  *will have a direction
-  *has a length
-  *has a speed
-*Game Area
-  *will have both a width and height
-  *holds coordinates of all 4 corners
+* Pellet gernerator
+  * randomly generates 2 ints for x,y coordinate of pellet
+  * manages number of pellets in window
+* Pellet
+  * will have a coordinate location
+* Snake
+  * will have a direction
+  * has a length
+  * has a speed
+* Game Area
+  * will have both a width and height
+  * holds coordinates of all 4 corners
 
 **Views/Controls**
-*Game window
+* Game window
