@@ -1,0 +1,40 @@
+{
+"env": {
+"amd": true,
+"node": true
+},
+"rules": {
+"strict": 0,
+"quotes": [1, "double"],
+"brace-style": [1, "1tbs"],
+"space-in-brackets": [2, "always"],
+"space-in-parens": [2, "never"],
+"space-after-keywords": [2, "always"],
+"space-after-function-name": [2, "never"],
+"spaced-line-comment": 1,
+"no-inner-declarations": [2, "both"],
+"no-extra-parens": 2,
+"block-scoped-var": 2,
+"complexity": [1, 6],
+"eqeqeq": [2, "allow-null"],
+"guard-for-in": 2,
+"no-else-return": 1,
+"no-self-compare": 1,
+"wrap-iife": [2, "outside"],
+"no-undefined": 1,
+"no-unused-vars": [1, {"vars": "all", "args": "none"}],
+"no-use-before-define": [2, "nofunc"],
+"consistent-this": [1, "that"],
+"no-trailing-spaces": 1,
+"no-underscore-dangle": 0,
+"no-mixed-spaces-and-tabs": [2, true],
+"space-unary-ops": 2,
+"max-depth": [2, 4],
+"max-len": [2, 105],
+"max-params": [2, 4],
+"no-proto": 2,
+"no-plusplus": 2,
+"one-var": 1,
+"padded-blocks": [1, "never"]
+}
+}
