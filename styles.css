@@ -23,6 +23,10 @@ body
 	text-align:center;
 	vertical-align:middle;
 }
+.startContainer:hover
+{
+	background:#0c7a8f;
+}
 .scoresContainer
 {
 	background:#ffd47e;
@@ -30,6 +34,10 @@ body
 	border-radius:5px;
 	text-align:center;
 	vertical-align:middle;
+}
+.scoresContainer:hover
+{
+	background:#0c7a8f;
 }
 .footer
 {
