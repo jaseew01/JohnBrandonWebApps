@@ -27,9 +27,9 @@ Necessary Components
 * Snake
   * will have a direction
   * has a length
-* Game Area
-  * will have both a width and height
-  * holds coordinates of all 4 corners
+* Game
+  * Will hold the game loop
+  * Handles all collisions
 * Scoring
   * Will keep track of score throughout game
   * Will store high scores in browser between sessions
