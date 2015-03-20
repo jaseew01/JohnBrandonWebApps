@@ -1,52 +1,69 @@
 body
 {
-	background:#ececec;
+	background-image: url('images/background4.jpg');
 }
 
 .main
 {
-	position:relative;
-	transform:translateY(30%);
+	margin-top:30px;
+	border-radius: 8px;
+	padding:0px;
 	padding:10em;
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
-	width:1000px;
+	width:600px;
 	text-align:center;
 	background:#ffffff;
+	-moz-box-shadow: 3px 3px 5px 6px #44403f;
+	-webkit-box-shadow: 3px 3px 5px 6px #44403f;
+	box-shadow: 3px 3px 5px 6px #44403f;
 }
+
+.title
+{
+	margin-bottom: 30px;
+}
+
 .startContainer
 {
-	background:#ffd47e;
-	border:1px solid black;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	background:#f84d40;
 	border-radius:5px;
 	text-align:center;
 	vertical-align:middle;
 }
+
 .startContainer:hover
 {
-	background:#0c7a8f;
+	background:#54312f;
 }
+
 .scoresContainer
 {
-	background:#ffd47e;
-	border:1px solid black;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	background:#f84d40;
 	border-radius:5px;
 	text-align:center;
 	vertical-align:middle;
 }
+
 .scoresContainer:hover
 {
-	background:#0c7a8f;
+	background:#54312f;
 }
+
 .footer
 {
-	padding-top:30px;
+	margin-top:30px;
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
 	width:100%;
 }
+
 .divTable
 {
 	width:100%;
@@ -54,7 +71,13 @@ body
 	margin:0px;
 	border:0px;
 }
+
 td
 {
 	width:50%;
+}
+
+h2
+{
+	color:#ffffff;
 }
