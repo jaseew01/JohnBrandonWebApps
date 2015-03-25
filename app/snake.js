@@ -1,18 +1,19 @@
-/*
-
-
-
- */
-
 var proto, Obj;
 
 function newSnake() {
 	var lst;
 
 	lst = Object.create(proto);
-	lst.snakeBody = [];
+	lst.snakeBody = [{x: 250, y: 250}];
+	lst.length;
 	lst.direction = "North";
-	lst.directions = ["North", "South", "East", "West"];
+	lst.directions = ["North", "South", "East", "West"];	
+	Array.prototype.unique = function() {
+	    var o = {}, i, l = this.length, r = [];
+	    for(i=0; i<l;i+=1) o[this[i]] = this[i];
+	    for(i in o) r.push(o[i]);
+	    return r;
+	};
 	return lst;
 }
 
@@ -29,7 +30,8 @@ proto = {
 
 	//@desc: Will add one box onto the body of the snake
 	addOne: function() {
-		//
+		newTail = {x: null, y: null};
+		this.length += 1;
 	},
 
 	//@desc: Will move the snake in the current direction
@@ -43,7 +45,11 @@ proto = {
 	//@desc: Checks to see if the head of the snake hits any part of the snake body
 	//@return: boolean
 	checkCollision: function() {
-		//
+		if(this.snakeBody.length < this.length) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 };
 
