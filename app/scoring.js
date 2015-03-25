@@ -1,8 +1,6 @@
 var proto, Obj;
 
-//@desc: creates a new pellet
-//@param width: width of the game area
-//@param height: height of the game area
+//@desc: Manages the scores for the game
 function createScoring() {
 	var lst;
 	lst = Object.create(proto);
