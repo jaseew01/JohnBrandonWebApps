@@ -1,17 +1,13 @@
-/*
-
-
-
-
- */
-
 var proto, Obj;
 
 //@desc: generates x and y coordinates within the grid limits
 //@param width: width of the game area
 //@param height: height of the game area
 function generateXY(width, height) {
-	return 250,250;
+	x = Math.floor(Math.random() * width);
+	y = Math.floor(Math.random() * height);
+
+	return x,y;
 }
 
 //@desc: creates a new pellet
