@@ -1,6 +1,6 @@
 var proto, Obj;
 
-//@desc: Manages the scores for the game
+// @desc: Manages the scores for the game
 function createScoring() {
 	var lst;
 	lst = Object.create(proto);
@@ -11,70 +11,70 @@ function createScoring() {
 }
 
 proto = {
-	//@desc: Will add the score to lst.scores and remove the lowest score.
-	//	If the score is too low to be recorded, it will be ignored
-	//@param score: the score that you want to add
-	//@return: the updated list of scores
+	// @desc: Will add the score to lst.scores and remove the lowest score.
+	// 	If the score is too low to be recorded, it will be ignored
+	// @param score: the score that you want to add
+	// @return: the updated list of scores
 	addScore: function(score) {
 		this.scores.push(score);
-		this.scores.sort(function(a,b) {
-			return a-b;
+		this.scores.sort(function(a, b) {
+			return a - b;
 		});
 		this.length += 1;
 		return this.scores;
 	},
 
-	//@desc: Will remove the score at a certain index in the scores array
-	//@param index: the index of the score you want removed
-	//@return: the updated list of scores
+	// @desc: Will remove the score at a certain index in the scores array
+	// @param index: the index of the score you want removed
+	// @return: the updated list of scores
 	removeScoreAtIndex: function(index) {
-		this.scores.splice(index,1);
+		this.scores.splice(index, 1);
 		this.length -= 1;
 		return this.scores;
 	},
 
-	//@desc: removes the last item in the scores array
-	//@return: the updated list of scores
+	// @desc: removes the last item in the scores array
+	// @return: the updated list of scores
 	removeLowest: function() {
 		this.scores.pop();
 		this.scores.length -= 1;
 		return this.scores;
 	},
 
-	//@desc: removes the first item in the scores array
-	//@return: the updated list of scores
+	// @desc: removes the first item in the scores array
+	// @return: the updated list of scores
 	removeHighest: function() {
-		this.scores.splice(0,1);
+		this.scores.splice(0, 1);
 		this.scores.length -= 1;
 		return this.scores;
 	},
 
-	//@desc: will get the highest score in the scores array
-	//@return: the highest score in the scores array
+	// @desc: will get the highest score in the scores array
+	// @return: the highest score in the scores array
 	getHighScore: function() {
 		return this.scores[0];
 	},
 
-	//@desc: decides if score is the current high score
-	//@param score: the score to check
-	//@return: true or false based on whether or not score is the high score
+	// @desc: decides if score is the current high score
+	// @param score: the score to check
+	// @return: true or false based on whether or not score is the high score
 	isHighScore: function(score) {
-		if(score === this.getHighScore()) {
+		if (score === this.getHighScore()) {
 			return true;
 		} else {
 			return false;
 		}
 	},
 
-	//@desc: gets the lowest score in the scores array
-	//@return: the lowest score in the scores array
+	// @desc: gets the lowest score in the scores array
+	// @return: the lowest score in the scores array
 	getLowestScore: function() {
 		return this.scores[this.length - 1];
 	}
 };
 
 Obj = {
-	new:createScoring
+	new: createScoring
 };
 
 Object.defineProperty(Obj, "prototype", {
