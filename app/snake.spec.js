@@ -1,5 +1,12 @@
 /*
  * Snake.spec.js
  *
- * Test file for your Snake class
+ * Test file for Snake class
  */
+
+ var expect, Snake;
+
+ expect = require('./chai.js').expect;
+
+ Snake = require('./snake.js');
+
