@@ -1,24 +1,24 @@
 var proto, Obj;
 
-//@desc: generates x and y coordinates within the grid limits
-//@param width: width of the game area
-//@param height: height of the game area
+// @desc: generates x and y coordinates within the grid limits
+// @param width: width of the game area
+// @param height: height of the game area
 function generateXY(width, height) {
-	x = Math.floor(Math.random() * width);
+	var x = Math.floor(Math.random() * width), y, tempArr;
 	y = Math.floor(Math.random() * height);
-
-	return x,y;
+	tempArr.push(x, y);
+	return tempArr;
 }
 
-//@desc: creates a new pellet
-//@param width: width of the game area
-//@param height: height of the game area
+// @desc: creates a new pellet
+// @param width: width of the game area
+// @param height: height of the game area
 function makeNewPellet(width, height) {
-	var lst, x, y;
+	var lst, arr;
 
-	x,y = generateXY(width, height)
-	lst.x = x;
-	lst.y = y;
+	arr = generateXY(width, height);
+	lst.x = arr[0];
+	lst.y = arr[1];
 	lst.width = 5;
 	lst.height = 5;
 	lst = Object.create(proto);
@@ -30,7 +30,7 @@ proto = {
 };
 
 Obj = {
-	new:makeNewPellet
+	new: makeNewPellet
 };
 
 Object.defineProperty(Obj, "prototype", {
