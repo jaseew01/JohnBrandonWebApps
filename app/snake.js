@@ -92,7 +92,14 @@ proto = {
 	//@param height: the height of the game area
 	//@return: Boolean value dependant on it being out of bounds or not
 	checkOutOfBounds: function(width, height) {
-		//
+		head = this.getHead();
+		if(0 < head.x < width) {
+			if(0 < head.y < height) {
+				return false;
+			}
+		} else {
+			return true;
+		}
 	}
 };
 
