@@ -1,6 +1,5 @@
 var proto, Obj, pG, scoring, snake;
 var EventEmitter = require('events').EventEmitter;
-var util = require('util');
 
 pG = require('./pelletGenerator.js');
 scoring = require('./scoring.js');
@@ -28,6 +27,8 @@ proto = {
 	//@return: null
 	run: function() {
 		this.snake.move();
+		this.snake.checkCollision();
+		this.snake.checkOutOfBounds();
 		this.checkCollisions();
 	},
 
@@ -51,6 +52,22 @@ proto = {
 
 	draw: function() {
 		//
+	},
+
+	leftKeyPressed: function() {
+		this.snake.changeDirection("West");
+	},
+
+	rightKeyPressed: function() {
+		this.snake.changeDirection("East");
+	},
+
+	upKeyPressed: function() {
+		this.snake.changeDirection("North");
+	},
+
+	downKeyPressed: function() {
+		this.snake.changeDirection("South");
 	}
 };
 
@@ -68,5 +85,5 @@ var game = Obj.new(500, 500);
 // Start the game loop
 game._intervalId = setInterval(game.run, game.tick);
 
-// To stop the game, use the following:
-game.on("stopGame",clearInterval(Game._intervalId));
+// To stop the game loop
+game.on("stopGame", clearInterval(Game._intervalId));

@@ -1,8 +1,6 @@
 /*
-*
 * main.js	
-*	will hold snake representation
 */
 
-/*global$*/
+//handle key presses in here
 
