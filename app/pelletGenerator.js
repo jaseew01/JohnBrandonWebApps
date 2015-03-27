@@ -1,10 +1,3 @@
-/*
- *
- *
- *
- *
- */
-
 var proto, Obj, pellet;
 
 pellet = require("./pellet.js");
