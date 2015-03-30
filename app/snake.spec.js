@@ -46,5 +46,17 @@ describe("Testing the proto methods", function() {
 		expect(mySnake.length).to.equal(2);
 		expect(mySnake.getTail().x).to.equal(245);
 		expect(mySnake.getTail().y).to.equal(250);
+	});
+
+	it("Testing the move method", function() {
+		mySnake.move();
+		expect(mySnake.getHead().x).to.equal(255);
+		expect(mySnake.getHead().y).to.equal(250);
+		expect(mySnake.getTail().x).to.equal(250);
+		expect(mySnake.getTail().y).to.equal(250);
+		mySnake.changeDirection("North");
+		mySnake.move();
+		expect(mySnake.getHead().x).to.equal(255);
+		expect(mySnake.getHead().y).to.equal(255);
 	})
 });
