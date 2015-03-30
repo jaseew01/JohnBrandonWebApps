@@ -48,7 +48,7 @@ describe("Testing the proto methods", function() {
 		expect(mySnake.getTail().y).to.equal(250);
 	});
 
-	it("Testing the move method", function() {
+	it("Testing the move and getHead methods", function() {
 		mySnake.move();
 		expect(mySnake.getHead().x).to.equal(255);
 		expect(mySnake.getHead().y).to.equal(250);
