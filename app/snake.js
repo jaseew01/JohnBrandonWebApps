@@ -48,9 +48,17 @@ proto = {
 	// @desc: Will add one box onto the body of the snake
 	addOne: function() {
 		var currTail = this.getTail(), newTail;
-		newTail = {x: currTail.x, y: currTail.y + this.bodySize};
+		
+		if (this.direction === "North") {
+			newTail = {x: currTail.x, y: currTail.y + this.bodySize};
+		} else if (this.direction === "East") {
+			newTail = {x: currTail.x - this.bodySize, y: currTail.y};
+		} else if (this.direction === "South") {
+			newTail = {x: currTail.x, y: currTail.y - this.bodySize};
+		} else if (this.direction === "West") {
+			newTail = {x: currTail.x + this.bodySize, y: currTail.y};
+		}
 		this.snakeBody.push(newTail);
-
 		this.length += 1;
 	},
 

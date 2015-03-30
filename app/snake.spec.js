@@ -10,7 +10,7 @@
 
  Snake = require('./snake.js');
 
-var mySnake = Snake.new();
+var mySnake = Snake.new(5);
 
 describe("Testing the snake constructor", function() {
 	"use strict";
@@ -21,6 +21,11 @@ describe("Testing the snake constructor", function() {
 	it("Testing the default direction is North", function () {
 		expect(mySnake.direction).to.equal("North");
 	});
+
+	it("Testing the default location", function() {
+		expect(mySnake.snakeBody[0].x).to.equal(250);
+		expect(mySnake.snakeBody[0].y).to.equal(250);
+	})
 });
 
 describe("Testing the proto methods", function() {
@@ -34,4 +39,12 @@ describe("Testing the proto methods", function() {
 		mySnake.changeDirection("East");
 		expect(mySnake.direction).to.equal("East");
 	});
+
+	it("Testing addOne and getTail methods", function() {
+		expect(mySnake.length).to.equal(1);
+		mySnake.addOne();
+		expect(mySnake.length).to.equal(2);
+		expect(mySnake.getTail().x).to.equal(245);
+		expect(mySnake.getTail().y).to.equal(250);
+	})
 });
