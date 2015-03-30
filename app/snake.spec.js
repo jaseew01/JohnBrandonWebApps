@@ -22,3 +22,16 @@ describe("Testing the snake constructor", function() {
 		expect(mySnake.direction).to.equal("North");
 	});
 });
+
+describe("Testing the proto methods", function() {
+	"use strict";
+	it("Testing the changeDirection method", function() {
+		expect(mySnake.direction).to.equal("North");
+		mySnake.changeDirection("South");
+		expect(mySnake.direction).to.equal("South");
+		mySnake.changeDirection("West");
+		expect(mySnake.direction).to.equal("West");
+		mySnake.changeDirection("East");
+		expect(mySnake.direction).to.equal("East");
+	});
+});

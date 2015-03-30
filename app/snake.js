@@ -36,11 +36,13 @@ proto = {
 	// @desc: Will change the direction of the snake
 	// @param dir: Snakes new direction
 	changeDirection: function(dir) {
-		if (this.directions.contains(dir)) {
-			this.direction = dir;
-		} else {
-			throw new Error("Invalid Direction");
+		for (var i = 0; i < this.directions.length; i += 1) {
+			if (this.directions[i] === dir) {
+				this.direction = dir;
+				return;
+			}
 		}
+		throw new Error("Invalid Direction");
 	},
 
 	// @desc: Will add one box onto the body of the snake
