@@ -58,5 +58,24 @@ describe("Testing the proto methods", function() {
 		mySnake.move();
 		expect(mySnake.getHead().x).to.equal(255);
 		expect(mySnake.getHead().y).to.equal(255);
+		expect(mySnake.getTail().x).to.equal(255);		
+		expect(mySnake.getTail().y).to.equal(250);		
+	});
+
+	it("Testing checkCollision method", function() {
+		mySnake.addOne();
+		mySnake.addOne();
+		mySnake.addOne();
+		mySnake.addOne();
+		expect(mySnake.length).to.equal(6);
+		mySnake.changeDirection("West");
+		mySnake.move();
+		expect(mySnake.checkCollision()).to.equal(false);
+		mySnake.changeDirection("South");
+		mySnake.move();
+		mySnake.changeDirection("East");
+		mySnake.move();
+		expect(mySnake.checkCollision()).to.equal(true);
+
 	})
 });
