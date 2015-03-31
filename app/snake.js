@@ -12,8 +12,8 @@ function newSnake(bodySize) {
 	lst.directions = ["North", "South", "East", "West"];
 	lst.bodySize = bodySize;
 	lst.moveCoordinates = {
-		North: {x: 0, y: bodySize},
-		South: {x: 0, y: -bodySize},
+		North: {x: 0, y: -bodySize},
+		South: {x: 0, y: bodySize},
 		East: {x: bodySize, y: 0},
 		West: {x: -bodySize, y: 0}
 	};
@@ -63,8 +63,8 @@ proto = {
 	},
 
 	// @desc: Will move the snake in the current direction
-	// 	Each item in this.snakeBody will take on the coordinates
-	// 	of the item before itself in the array.
+	// 	The old tail will be removed, and a new square will be added
+	//  to the front
 	// 	The first item in the array will move in the direction of this.direction
 	move: function() {
 		var newObj = {}, distChange, head;
