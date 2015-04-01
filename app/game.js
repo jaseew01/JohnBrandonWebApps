@@ -1,12 +1,12 @@
-var proto, Obj, pG, scoring, snake;
-var EventEmitter = require('events').EventEmitter;
+var proto, Obj, pG, scoring, snake, EventEmitter, game;
+EventEmitter = require("events").EventEmitter;
 
-pG = require('./pelletGenerator.js');
-scoring = require('./scoring.js');
-snake = require('./snake.js');
+pG = require(".pelletGenerator.js");
+scoring = require("./scoring.js");
+snake = require("./snake.js");
 
-//@desc: will handle the interactions between the game's different classes
-//@params: the width and height of the window
+// @desc: will handle the interactions between the game's different classes
+// @params: the width and height of the window
 function makeNewGame(width, height) {
 	var lst;
 	lst = Object.create(proto);
@@ -23,8 +23,8 @@ function makeNewGame(width, height) {
 }
 
 proto = {
-	//@desc: will run the game
-	//@return: null
+	// @desc: will run the game
+	// @return: null
 	run: function() {
 		this.snake.move();
 		this.snake.checkCollision();
@@ -32,16 +32,16 @@ proto = {
 		this.checkCollisions();
 	},
 
-	//@desc: will look to see if the snake has touched any
-	//	of the objects in this.pageObjects
-	//@return: null
+	// @desc: will look to see if the snake has touched any
+	// 	of the objects in this.pageObjects
+	// @return: null
 	checkCollisions: function() {
 		var temp = [];
 
 		temp.push(this.snake.checkOutOfBounds(this.width, this.height));
 		temp.push(this.snake.checkCollision());
 
-		if(temp.contains(true)) {
+		if (temp.contains(true)) {
 			this.emit("stopGame");
 		}
 	},
@@ -72,7 +72,7 @@ proto = {
 };
 
 Obj = {
-	new:makeNewGame
+	new: makeNewGame
 };
 
 Object.defineProperty(Obj, "prototype", {
@@ -80,10 +80,10 @@ Object.defineProperty(Obj, "prototype", {
 	writable: false
 });
 
-var game = Obj.new(500, 500);
+game = Obj.new(500, 500);
 
-// Start the game loop
+//  Start the game loop
 game._intervalId = setInterval(game.run, game.tick);
 
-// To stop the game loop
-game.on("stopGame", clearInterval(Game._intervalId));
+//  To stop the game loop
+game.on("stopGame", clearInterval(game._intervalId));
