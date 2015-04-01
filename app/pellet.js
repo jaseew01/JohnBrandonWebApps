@@ -4,7 +4,7 @@ var proto, Obj;
 // @param width: width of the game area
 // @param height: height of the game area
 function generateXY(width, height) {
-	var x = Math.floor(Math.random() * width), y, tempArr;
+	var x = Math.floor(Math.random() * width), y, tempArr = [];
 	y = Math.floor(Math.random() * height);
 	tempArr.push(x, y);
 	return tempArr;
