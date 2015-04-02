@@ -1,8 +1,8 @@
 var proto, Obj, pG, scoring, snake, EventEmitter, game;
-EventEmitter = require("events").EventEmitter;
+//EventEmitter = require("events").EventEmitter;
 
-pG = require(".pelletGenerator.js");
-scoring = require("./scoring.js");
+//pG = require(".pelletGenerator.js");
+//scoring = require("./scoring.js");
 snake = require("./snake.js");
 
 // @desc: will handle the interactions between the game's different classes
@@ -18,6 +18,7 @@ function makeNewGame(width, height) {
 	lst.snake = snake.new();
 	lst.pelletGenerator = pG.new();
 	lst.scoring = scoring.new();
+	lst.canvas = document.getElementById("canvas");
 
 	return lst;
 }
@@ -26,6 +27,7 @@ proto = {
 	// @desc: will run the game
 	// @return: null
 	run: function() {
+		this.draw();
 		this.snake.move();
 		this.snake.checkCollision();
 		this.snake.checkOutOfBounds();
@@ -41,7 +43,7 @@ proto = {
 		temp.push(this.snake.checkOutOfBounds(this.width, this.height));
 		temp.push(this.snake.checkCollision());
 
-		if (temp.contains(true)) {
+		if (temp.indexOf(true) != -1) {
 			this.emit("stopGame");
 		}
 	},
@@ -51,7 +53,11 @@ proto = {
 	},
 
 	draw: function() {
-		//
+		if(canvas.getContext){
+			var ctx = canvas.getContext("2d");
+			ctx.fillStyle = "rgb(200,0,0)";
+			ctx.fillRect (100, 100, 200, 200);
+		}
 	},
 
 	leftKeyPressed: function() {
@@ -80,10 +86,4 @@ Object.defineProperty(Obj, "prototype", {
 	writable: false
 });
 
-game = Obj.new(500, 500);
-
-//  Start the game loop
-game._intervalId = setInterval(game.run, game.tick);
-
-//  To stop the game loop
-game.on("stopGame", clearInterval(game._intervalId));
+module.exports = Obj;

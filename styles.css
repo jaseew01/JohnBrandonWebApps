@@ -14,7 +14,7 @@ body
 	display:block;
 	width:600px;
 	text-align:center;
-	background:#ffffff;
+	background-image: url('images/divBackground.jpg');
 	-moz-box-shadow: 3px 3px 5px 6px #44403f;
 	-webkit-box-shadow: 3px 3px 5px 6px #44403f;
 	box-shadow: 3px 3px 5px 6px #44403f;
@@ -80,4 +80,28 @@ td
 h2
 {
 	color:#ffffff;
+}
+
+a:link
+{
+	color: transparent;
+	text-decoration: none;
+}
+
+a:active
+{
+	color: transparent;
+	text-decoration: none;
+}
+
+a:visited
+{
+	color: transparent;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: transparent;
+	text-decoration: none;
 }
