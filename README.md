@@ -35,7 +35,7 @@ Necessary Components
   * Will store high scores in browser between sessions
 
 **Model**
-  * Will be the browsers temporary files.  Any data (just a few numbers for the high scores) will be stored in their for the game.
+  * Will be the browsers temporary files.  Any data (just a few numbers for the high scores) will be stored in there for the game.
 
 **View**
   * Index.html will hold the main view with the scoring table and gaming window.
