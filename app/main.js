@@ -10,15 +10,22 @@ require.config({
 });
 
 // All other modules should be called through here
-require(["jquery", "game"], function($, Game) {
-	var game;
+require(["jquery", "game", "pelletGenerator","scoring","snake"], function($, Game, PG, Scoring, Snake) {
+	var game, snake, pg, scoring;
 	$(function() {
 		console.log("Page loaded!");
-		game = new Game(500, 500);
+		snake = new Snake(5);
+		pg = new PG();
+		scoring = new Scoring();
+		game = new Game(500, 500, snake, pg, scoring);
+
+		function temp() {
+			game.run();
+		}
 
 		//  Start the game loop
-		game._intervalId = setInterval(game.run, game.tick);
+		game._intervalId = setInterval(temp, game.tick);
 		//  To stop the game loop
-		game.on("stopGame", clearInterval(game._intervalId));
+		//clearInterval(game._intervalId);
 	});
 });
