@@ -6,6 +6,7 @@ function createScoring() {
 	lst = Object.create(proto);
 	lst.scores = [];
 	lst.length = 0;
+	lst.gameScore = 0;
 
 	return lst;
 }
@@ -22,6 +23,13 @@ proto = {
 		});
 		this.length += 1;
 		return this.scores;
+	},
+
+	// @desc: Will add 10 to the current game score when called.
+	// Will be called every time the snake increases in length
+	// @return: The score for the current game
+	updateGameScore: function() {
+		return this.gameScore + 10;
 	},
 
 	// @desc: Will remove the score at a certain index in the scores array
