@@ -19,10 +19,9 @@ define(function() {
 		// @desc: will run the game
 		// @return: null
 		run: function() {
-			var temp = false, len;
+			var temp = false, len = this.snake.length;
 			if(temp === false) {
 				this.draw();
-				len = this.snake.length;
 				this.snake.move();
 				if (this.snake.length > len) {
 					this.scoring.updateGameScore();
