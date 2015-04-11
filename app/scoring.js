@@ -24,9 +24,8 @@ define(function() {
 
 		// @desc: Will add 10 to the current game score when called.
 		// Will be called every time the snake increases in length.
-		// @return: The score for the current game
 		updateGameScore: function() {
-			return this.gameScore + 10;
+			this.gameScore + 10;
 		},
 
 		// @desc: Will remove the score at a certain index in the scores array

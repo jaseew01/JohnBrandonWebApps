@@ -19,10 +19,14 @@ define(function() {
 		// @desc: will run the game
 		// @return: null
 		run: function() {
-			var temp = false;
+			var temp = false, len;
 			if(temp === false) {
 				this.draw();
+				len = this.snake.length;
 				this.snake.move();
+				if (this.snake.length > len) {
+					this.scoring.updateGameScore();
+				}
 				temp = this.checkCollisions();
 			}
 		},
