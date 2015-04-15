@@ -14,7 +14,7 @@ require(["jquery", "game", "pelletGenerator","scoring","snake"], function($, Gam
 	var game, snake, pg, scoring;
 	$(function() {
 		console.log("Page loaded!");
-		snake = new Snake(5);
+		snake = new Snake(15);
 		pg = new PG();
 		scoring = new Scoring();
 		game = new Game(500, 500, snake, pg, scoring);

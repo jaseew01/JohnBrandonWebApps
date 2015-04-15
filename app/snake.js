@@ -72,6 +72,7 @@ define(function() {
 			newObj.y = head.y + distChange.y;
 
 			this.snakeBody.unshift(newObj);
+			return newObj;
 		},
 
 		// @desc: Will get the tail of the snake body
@@ -103,13 +104,14 @@ define(function() {
 		// @return: Boolean value dependant on it being out of bounds or not
 		checkOutOfBounds: function(width, height) {
 			var head = this.getHead();
-			if (head.x > 0 && head.x < width) {
-				if (head.y > 0 && head.y < height) {
-					return false;
-				}
-			} else {
+			if (head.x < 0 || head.x > width) {
 				return true;
 			}
+			if (head.y > height || head.y < 0) {
+				return true;
+			}
+
+			return false;
 		}
 	};
 	
