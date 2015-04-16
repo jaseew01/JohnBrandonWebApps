@@ -4,7 +4,7 @@ define(function() {
 	// @desc: this class will handle the snake moving around the page
 	// @param bodySize: the width/height of each square in the snake body
 	function snake(bodySize) {
-		this.snakeBody = [{x: 250, y: 250}];
+		this.snakeBody = [{x: 240, y: 240}];
 		this.length = 1;
 		this.direction = "North";
 		this.directions = ["North", "South", "East", "West"];
@@ -57,14 +57,50 @@ define(function() {
 			}
 		},
 
+		getNewX: function(currTail, secondLast) {
+			var x = 0;
+
+			//New Point West
+			if(currTail.x < secondLast.x){
+				x = currTail.x-this.bodySize;
+			}
+			//New Point East
+			if(currTail.x > secondLast.x) {
+				x = currTail.x+this.bodySize;
+			}
+			if(currTail.x === secondLast.x) {
+				x = currTail.x;
+			}
+
+			return x;
+		},
+
+		getNewY: function(currTail, secondLast) {
+			var y = 0;
+
+			//New Point North
+			if(currTail.y < secondLast.y) {
+				y = currTail.y-this.bodySize;
+			}
+			//New Point South
+			if(currTail.y > secondLast.y) {
+				y = currTail.y+this.bodySize;
+			}
+			if(currTail.y === secondLast.y) {
+				y = currTail.y;
+			}
+
+			return y;
+		},
+
 		// @desc: Will add one box onto the body of the snake
 		addOne: function() {
 			var currTail = this.getTail(), newTail, secondLast;
 			if(this.length >= 2) {
 				secondLast = this.snakeBody[this.length-2];
 				newTail = {
-					x: currTail.x-(-secondLast.x),
-					y: currTail.y-(-secondLast.y)
+					x: this.getNewX(currTail, secondLast),
+					y: this.getNewY(currTail, secondLast)
 				};
 			} else {
 				newTail = this.oppositeDirection(currTail.x,currTail.y);

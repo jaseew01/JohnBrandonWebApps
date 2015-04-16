@@ -17,7 +17,7 @@ define(function() {
 	function pellet(width, height) {
 		var arr;
 
-		arr = generateXY(width, height);
+		arr = generateXY(width-15, height-15);
 		this.x = arr[0];
 		this.y = arr[1];
 		this.width = width;
@@ -27,7 +27,7 @@ define(function() {
 
 	pellet.prototype = {
 		randomize: function() {
-			var temp = generateXY(this.width, this.height);
+			var temp = generateXY(this.width-15, this.height-15);
 			this.x = temp[0];
 			this.y = temp[1];
 		}

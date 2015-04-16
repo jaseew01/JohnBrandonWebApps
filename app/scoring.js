@@ -2,7 +2,8 @@ define(function() {
 	var scoring;
 
 	// @desc: Manages the scores for the game
-	function scoring() {
+	function scoring(element) {
+		this.scoreBox = element;
 		this.scores = [];
 		this.length = 0;
 		this.gameScore = 0;
@@ -25,7 +26,8 @@ define(function() {
 		// @desc: Will add 10 to the current game score when called.
 		// Will be called every time the snake increases in length.
 		updateGameScore: function() {
-			this.gameScore + 10;
+			this.gameScore += 10;
+			this.scoreBox.innerHTML = "Score: " + this.gameScore;
 		},
 
 		// @desc: Will remove the score at a certain index in the scores array

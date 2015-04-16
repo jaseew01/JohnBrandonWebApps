@@ -9,7 +9,7 @@ define(function() {
 	// @params: the width and height of the window
 	function game(width, height, snake, scoring, pellet) {
 		this.pageObjects = [];
-		this.tick = 500;
+		this.tick = 250;
 		this.width = width;
 		this.height = height;
 		this.isStopped = false;
@@ -23,16 +23,9 @@ define(function() {
 		// @desc: will run the game
 		// @return: null
 		run: function() {
-			var len = this.snake.length;
-			
 			this.snake.move();
 			this.eatPellet();
 			this.draw();
-
-			if (this.snake.length > len) {
-				this.scoring.updateGameScore();
-			}
-
 			this.checkCollisions();
 		},
 
@@ -66,8 +59,9 @@ define(function() {
 			   snakeHead.x + this.snake.bodySize > pellBoundaries[0] &&
 			   snakeHead.y < pellBoundaries[3] &&
 			   snakeHead.y + this.snake.bodySize > pellBoundaries[2]) {
-				this.pellet.randomize();
 				this.snake.addOne();
+				this.scoring.updateGameScore();
+				this.pellet.randomize();
 			}
 		},
 

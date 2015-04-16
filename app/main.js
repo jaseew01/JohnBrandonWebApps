@@ -13,17 +13,16 @@ require.config({
 require(["jquery", "game", "scoring", "snake", "pellet"], function($, Game, Scoring, Snake, Pellet) {
 	var game, snake, pg, scoring, width, height;
 	$(function() {
-		width = 500;
-		height = 500;
+		width = 330;
+		height = 330;
 		console.log("Page loaded!");
 		snake = new Snake(15);
-		scoring = new Scoring();
+		scoring = new Scoring(document.getElementById("score"));
 		pellet = new Pellet(width, height);
 		game = new Game(width, height, snake, scoring, pellet);
 
 		var handleKeyPress = function(e) {
 			var event = window.event ? window.event : e;
-			console.log(event.keyCode);
 			switch(event.keyCode) {
 				case 37:
 				snake.changeDirection("West");
@@ -49,6 +48,8 @@ require(["jquery", "game", "scoring", "snake", "pellet"], function($, Game, Scor
 			if(game.isStopped) {
 				//  To stop the game loop
 				clearInterval(game._intervalId);
+				scoring.addScore(scoring.gameScore);
+				scoring.gameScore = 0;
 				alert("GAME OVER");
 			}else {
 				game.run();
