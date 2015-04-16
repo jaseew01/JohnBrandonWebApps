@@ -20,10 +20,17 @@ define(function() {
 		arr = generateXY(width, height);
 		this.x = arr[0];
 		this.y = arr[1];
+		this.width = width;
+		this.height = height;
+		this.pelletSide = 7;
 	}
 
 	pellet.prototype = {
-		//
+		randomize: function() {
+			var temp = generateXY(this.width, this.height);
+			this.x = temp[0];
+			this.y = temp[1];
+		}
 	};
 
 	return pellet;

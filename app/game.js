@@ -1,11 +1,15 @@
 define(function() {
 	var game;
 
+	function getRange(length){
+		return Array.apply(null, Array(length)).map(function (_, i) {return i;});
+	}
+
 	// @desc: will handle the interactions between the game's different classes
 	// @params: the width and height of the window
 	function game(width, height, snake, scoring, pellet) {
 		this.pageObjects = [];
-		this.tick = 1000;
+		this.tick = 500;
 		this.width = width;
 		this.height = height;
 		this.isStopped = false;
@@ -22,6 +26,7 @@ define(function() {
 			var len = this.snake.length;
 			
 			this.snake.move();
+			this.eatPellet();
 			this.draw();
 
 			if (this.snake.length > len) {
@@ -48,8 +53,22 @@ define(function() {
 			}
 		},
 
-		update: function() {
-			//
+		eatPellet: function() {
+			var pellBoundaries = [];
+			pellBoundaries.push(this.pellet.x);
+			pellBoundaries.push(this.pellet.x+this.pellet.pelletSide);
+			pellBoundaries.push(this.pellet.y);
+			pellBoundaries.push(this.pellet.y+this.pellet.pelletSide);
+
+			var snakeHead = this.snake.getHead();
+			
+			if(snakeHead.x < pellBoundaries[1] &&
+			   snakeHead.x + this.snake.bodySize > pellBoundaries[0] &&
+			   snakeHead.y < pellBoundaries[3] &&
+			   snakeHead.y + this.snake.bodySize > pellBoundaries[2]) {
+				this.pellet.randomize();
+				this.snake.addOne();
+			}
 		},
 
 		draw: function() {
