@@ -47,7 +47,7 @@ require(["jquery", "game", "pelletGenerator","scoring","snake"], function($, Gam
 			if(game.isStopped) {
 				//  To stop the game loop
 				clearInterval(game._intervalId);
-				console.log("stopped the game");
+				alert("GAME OVER");
 			}else {
 				game.run();
 			}

@@ -23,6 +23,7 @@ define(function() {
 			
 			this.snake.move();
 			this.draw();
+			
 			if (this.snake.length > len) {
 				this.scoring.updateGameScore();
 			}

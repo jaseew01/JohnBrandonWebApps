@@ -104,10 +104,10 @@ define(function() {
 		// @return: Boolean value dependant on it being out of bounds or not
 		checkOutOfBounds: function(width, height) {
 			var head = this.getHead();
-			if (head.x < 0 || head.x > width) {
+			if (head.x < 0 || head.x + this.bodySize > width) {
 				return true;
 			}
-			if (head.y > height || head.y < 0) {
+			if (head.y+this.bodySize > height || head.y < 0) {
 				return true;
 			}
 
