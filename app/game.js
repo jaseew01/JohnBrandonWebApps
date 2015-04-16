@@ -21,8 +21,8 @@ define(function() {
 		run: function() {
 			var len = this.snake.length;
 			
-			this.draw();
 			this.snake.move();
+			this.draw();
 			if (this.snake.length > len) {
 				this.scoring.updateGameScore();
 			}
