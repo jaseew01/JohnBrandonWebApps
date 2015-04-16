@@ -41,19 +41,35 @@ define(function() {
 			throw new Error("Invalid Direction");
 		},
 
+		oppositeDirection: function(xcoord,ycoord) {
+			switch(this.direction) {
+				case "North":
+				return { x:xcoord, y:ycoord-this.bodySize };
+
+				case "South":
+				return { x:xcoord, y:ycoord+this.bodySize };
+
+				case "East":
+				return { x:xcoord-this.bodySize, y:ycoord };
+
+				case "West":
+				return { x:xcoord+this.bodySize, y:ycoord };
+			}
+		},
+
 		// @desc: Will add one box onto the body of the snake
 		addOne: function() {
-			var currTail = this.getTail(), newTail;
-			
-			if (this.direction === "North") {
-				newTail = {x: currTail.x, y: currTail.y + this.bodySize};
-			} else if (this.direction === "East") {
-				newTail = {x: currTail.x - this.bodySize, y: currTail.y};
-			} else if (this.direction === "South") {
-				newTail = {x: currTail.x, y: currTail.y - this.bodySize};
-			} else if (this.direction === "West") {
-				newTail = {x: currTail.x + this.bodySize, y: currTail.y};
+			var currTail = this.getTail(), newTail, secondLast;
+			if(this.length >= 2) {
+				secondLast = this.snakeBody[this.length-2];
+				newTail = {
+					x: currTail.x-(-secondLast.x),
+					y: currTail.y-(-secondLast.y)
+				};
+			} else {
+				newTail = this.oppositeDirection(currTail.x,currTail.y);
 			}
+			
 			this.snakeBody.push(newTail);
 			this.length += 1;
 		},

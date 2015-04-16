@@ -10,14 +10,16 @@ require.config({
 });
 
 // All other modules should be called through here
-require(["jquery", "game", "pelletGenerator","scoring","snake"], function($, Game, PG, Scoring, Snake) {
-	var game, snake, pg, scoring;
+require(["jquery", "game", "scoring", "snake", "pellet"], function($, Game, Scoring, Snake, Pellet) {
+	var game, snake, pg, scoring, width, height;
 	$(function() {
+		width = 500;
+		height = 500;
 		console.log("Page loaded!");
 		snake = new Snake(15);
-		pg = new PG();
 		scoring = new Scoring();
-		game = new Game(500, 500, snake, pg, scoring);
+		pellet = new Pellet(width, height);
+		game = new Game(width, height, snake, scoring, pellet);
 
 		var handleKeyPress = function(e) {
 			var event = window.event ? window.event : e;

@@ -3,14 +3,14 @@ define(function() {
 
 	// @desc: will handle the interactions between the game's different classes
 	// @params: the width and height of the window
-	function game(width, height, snake, pelletGenerator, scoring) {
+	function game(width, height, snake, scoring, pellet) {
 		this.pageObjects = [];
 		this.tick = 1000;
 		this.width = width;
 		this.height = height;
 		this.isStopped = false;
 		this.snake = snake;
-		this.pelletGenerator = pelletGenerator;
+		this.pellet = pellet;
 		this.scoring = scoring;
 		this.canvas = document.getElementById("canvas");
 	}
@@ -23,7 +23,7 @@ define(function() {
 			
 			this.snake.move();
 			this.draw();
-			
+
 			if (this.snake.length > len) {
 				this.scoring.updateGameScore();
 			}
@@ -56,11 +56,11 @@ define(function() {
 			if(canvas.getContext){
 				var bodySize = this.snake.bodySize;
 				var ctx = canvas.getContext("2d");
-				var head = this.snake.getHead();
-				var tail = this.snake.getTail();
 				var temp = {};
 
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				ctx.fillStyle = "rgb(0,0,200)";
+				ctx.fillRect(this.pellet.x, this.pellet.y, 7, 7);
 				ctx.fillStyle = "rgb(200,0,0)";
 				for (var i = 0; i < this.snake.length; i++) {
 					temp = this.snake.snakeBody[i];

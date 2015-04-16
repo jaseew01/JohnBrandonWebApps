@@ -15,15 +15,11 @@ define(function() {
 	// @param width: width of the game area
 	// @param height: height of the game area
 	function pellet(width, height) {
-		var lst, arr;
+		var arr;
 
 		arr = generateXY(width, height);
-		lst.x = arr[0];
-		lst.y = arr[1];
-		lst.width = 5;
-		lst.height = 5;
-		lst = Object.create(proto);
-		return lst;
+		this.x = arr[0];
+		this.y = arr[1];
 	}
 
 	pellet.prototype = {
