@@ -24,4 +24,4 @@ Functionality
 
 * The main.js file defines all the class files and starts the game loop.  This file listens for the arrow key presses and updates the game accordingly.  Upon the game class reaching an end-game scenario, the main file terminates the game loop.
 
-* The files work together through the game.js file.  This maintains the snake and pellet visual, and allows for the game to run.  It checks for collisions between the snake and the walls, the snake and itself, and the snake and the pellet.  If one of the first two occur, a stop game event occurs terminating the loop.  If the snake eats a pellet, the game class updates the snake model appropriately and then updates the view.
+* The files work together through the game.js file.  This maintains the snake and pellet visual, and allows for the game to run.  It checks for collisions between the snake and the walls, the snake and itself, and the snake and the pellet.  If one of the first two occur, a stop game event occurs terminating the loop.  If the snake eats a pellet, the game class updates the snake model appropriately along with the score and then updates the view.
