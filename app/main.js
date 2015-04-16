@@ -19,13 +19,41 @@ require(["jquery", "game", "pelletGenerator","scoring","snake"], function($, Gam
 		scoring = new Scoring();
 		game = new Game(500, 500, snake, pg, scoring);
 
+		var handleKeyPress = function(e) {
+			var event = window.event ? window.event : e;
+			console.log(event.keyCode);
+			switch(event.keyCode) {
+				case 37:
+				snake.changeDirection("West");
+				break;
+
+				case 38:
+				snake.changeDirection("North");
+				break;
+
+				case 39:
+				snake.changeDirection("East");
+				break;
+
+				case 40:
+				snake.changeDirection("South");
+				break;
+			}
+		};
+
+		window.addEventListener("keypress", handleKeyPress, false);
+
 		function temp() {
-			game.run();
+			if(game.isStopped) {
+				//  To stop the game loop
+				clearInterval(game._intervalId);
+				console.log("stopped the game");
+			}else {
+				game.run();
+			}
 		}
 
 		//  Start the game loop
 		game._intervalId = setInterval(temp, game.tick);
-		//  To stop the game loop
-		//clearInterval(game._intervalId);
 	});
 });

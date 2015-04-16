@@ -26,7 +26,7 @@ define(function() {
 			if (this.snake.length > len) {
 				this.scoring.updateGameScore();
 			}
-			
+
 			this.checkCollisions();
 		},
 
@@ -40,9 +40,11 @@ define(function() {
 			temp.push(this.snake.checkCollision());
 
 			if (temp.indexOf(true) != -1) {
+				this.isStopped = true;
 				return true;
+			} else {
+				return false;
 			}
-			return false;
 		},
 
 		update: function() {
@@ -64,22 +66,6 @@ define(function() {
 					ctx.fillRect (temp.x, temp.y, bodySize, bodySize);
 				};
 			}
-		},
-
-		leftKeyPressed: function() {
-			this.snake.changeDirection("West");
-		},
-
-		rightKeyPressed: function() {
-			this.snake.changeDirection("East");
-		},
-
-		upKeyPressed: function() {
-			this.snake.changeDirection("North");
-		},
-
-		downKeyPressed: function() {
-			this.snake.changeDirection("South");
 		}
 	};
 
