@@ -31,7 +31,7 @@ define(function() {
 
 		// @desc: will look to see if the snake has touched any
 		// 	of the objects in this.pageObjects
-		// @return: null
+		// @return: false for no collisions, true for a collision
 		checkCollisions: function() {
 			var temp = [];
 
