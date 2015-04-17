@@ -50,7 +50,11 @@ require(["jquery", "game", "scoring", "snake", "pellet"], function($, Game, Scor
 				clearInterval(game._intervalId);
 				scoring.addScore(scoring.gameScore);
 				scoring.gameScore = 0;
-				alert("GAME OVER");
+				if (confirm("YOU LOST!  Would you like to play again?")) {
+					window.location.reload();
+				} else {
+					alert("Thanks for playing!");
+				}
 			}else {
 				game.run();
 			}
