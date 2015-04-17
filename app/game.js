@@ -1,10 +1,6 @@
 define(function() {
 	var game;
 
-	function getRange(length){
-		return Array.apply(null, Array(length)).map(function (_, i) {return i;});
-	}
-
 	// @desc: will handle the interactions between the game's different classes
 	// @params: the width and height of the window
 	function game(width, height, snake, scoring, pellet) {

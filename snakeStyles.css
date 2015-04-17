@@ -8,16 +8,26 @@ body
 	background-image: url('images/background4.jpg');
 }
 
+.container
+{
+	height:auto;
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+
 .main
 {
 	margin-top:30px;
 	border-radius: 8px;
 	padding:0px;
-	margin-left:auto;
-	margin-right:auto;
-	display:block;
 	width:330px;
 	height: auto;
+	float: left;
+	position: relative;
+	bottom: 30px;
+	right: 20px;
 	text-align:center;
 	border:1px solid black;
 	background-image: url('images/divBackground.jpg');
@@ -27,10 +37,10 @@ body
 {
 	width:200px;
 	height:auto;
+	float: left;
 	text-align:center;
-	position:fixed;
-	top:30px;
-	left:500px;
+	position: relative;
+	right: 30px;
 	border:1px solid black;
 	background-image: url('images/divBackground.jpg');
 	border-radius: 8px;
