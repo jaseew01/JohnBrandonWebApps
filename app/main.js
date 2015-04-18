@@ -11,7 +11,7 @@ require.config({
 
 // All other modules should be called through here
 require(["jquery", "game", "scoring", "snake", "pellet"], function($, Game, Scoring, Snake, Pellet) {
-	var game, snake, pg, scoring, width, height;
+	var game, snake, scoring, width, height, pellet;
 	$(function() {
 		width = 330;
 		height = 330;
@@ -23,7 +23,7 @@ require(["jquery", "game", "scoring", "snake", "pellet"], function($, Game, Scor
 
 		var handleKeyPress = function(e) {
 			var event = window.event ? window.event : e;
-			switch(event.keyCode) {
+			switch (event.keyCode) {
 				case 37:
 				snake.changeDirection("West");
 				break;
@@ -45,17 +45,17 @@ require(["jquery", "game", "scoring", "snake", "pellet"], function($, Game, Scor
 		window.addEventListener("keypress", handleKeyPress, false);
 
 		function temp() {
-			if(game.isStopped) {
+			if (game.isStopped) {
 				//  To stop the game loop
 				clearInterval(game._intervalId);
 				scoring.addScore(scoring.gameScore);
 				scoring.gameScore = 0;
-				if (confirm("YOU LOST!  Would you like to play again?")) {
+				if (confirm("YOU LOST!  Would you like to play again?  Hit Ok to play again and cancel to quit")) {
 					window.location.reload();
 				} else {
 					alert("Thanks for playing!");
 				}
-			}else {
+			} else {
 				game.run();
 			}
 		}

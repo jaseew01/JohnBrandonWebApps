@@ -1,6 +1,4 @@
 define(function() {
-	var game;
-
 	// @desc: will handle the interactions between the game's different classes
 	// @params: the width and height of the window
 	function game(width, height, snake, scoring, pellet) {
@@ -34,7 +32,7 @@ define(function() {
 			temp.push(this.snake.checkOutOfBounds(this.width, this.height));
 			temp.push(this.snake.checkCollision());
 
-			if (temp.indexOf(true) != -1) {
+			if (temp.indexOf(true) !== -1) {
 				this.isStopped = true;
 				return true;
 			} else {
@@ -43,18 +41,16 @@ define(function() {
 		},
 
 		eatPellet: function() {
-			var pellBoundaries = [];
+			var pellBoundaries = [], snakeHead = this.snake.getHead();
 			pellBoundaries.push(this.pellet.x);
-			pellBoundaries.push(this.pellet.x+this.pellet.pelletSide);
+			pellBoundaries.push(this.pellet.x + this.pellet.pelletSide);
 			pellBoundaries.push(this.pellet.y);
-			pellBoundaries.push(this.pellet.y+this.pellet.pelletSide);
+			pellBoundaries.push(this.pellet.y + this.pellet.pelletSide);
 
-			var snakeHead = this.snake.getHead();
-			
-			if(snakeHead.x < pellBoundaries[1] &&
-			   snakeHead.x + this.snake.bodySize > pellBoundaries[0] &&
-			   snakeHead.y < pellBoundaries[3] &&
-			   snakeHead.y + this.snake.bodySize > pellBoundaries[2]) {
+			if (snakeHead.x < pellBoundaries[1] &&
+				snakeHead.x + this.snake.bodySize > pellBoundaries[0] &&
+				snakeHead.y < pellBoundaries[3] &&
+				snakeHead.y + this.snake.bodySize > pellBoundaries[2]) {
 				this.snake.addOne();
 				this.scoring.updateGameScore();
 				this.pellet.randomize();
@@ -62,19 +58,20 @@ define(function() {
 		},
 
 		draw: function() {
-			if(canvas.getContext){
-				var bodySize = this.snake.bodySize;
-				var ctx = canvas.getContext("2d");
-				var temp = {};
+			var bodySize, ctx, temp, i;
+			if (this.canvas.getContext){
+				bodySize = this.snake.bodySize;
+				ctx = this.canvas.getContext("2d");
+				temp = {};
 
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 				ctx.fillStyle = "rgb(0,0,200)";
 				ctx.fillRect(this.pellet.x, this.pellet.y, 7, 7);
 				ctx.fillStyle = "rgb(200,0,0)";
-				for (var i = 0; i < this.snake.length; i++) {
+				for (i = 0; i < this.snake.length; i += 1) {
 					temp = this.snake.snakeBody[i];
-					ctx.fillRect (temp.x, temp.y, bodySize, bodySize);
-				};
+					ctx.fillRect(temp.x, temp.y, bodySize, bodySize);
+				}
 			}
 		}
 	};

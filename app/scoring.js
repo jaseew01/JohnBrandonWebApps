@@ -1,6 +1,4 @@
 define(function() {
-	var scoring;
-
 	// @desc: Manages the scores for the game
 	function scoring(element) {
 		this.scoreBox = element;

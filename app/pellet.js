@@ -1,6 +1,4 @@
 define(function() {
-	var pellet;
-
 	// @desc: generates x and y coordinates within the grid limits
 	// @param width: width of the game area
 	// @param height: height of the game area
@@ -17,7 +15,7 @@ define(function() {
 	function pellet(width, height) {
 		var arr;
 
-		arr = generateXY(width-15, height-15);
+		arr = generateXY(width - 15, height - 15);
 		this.x = arr[0];
 		this.y = arr[1];
 		this.width = width;
@@ -27,7 +25,7 @@ define(function() {
 
 	pellet.prototype = {
 		randomize: function() {
-			var temp = generateXY(this.width-15, this.height-15);
+			var temp = generateXY(this.width - 15, this.height - 15);
 			this.x = temp[0];
 			this.y = temp[1];
 		}
