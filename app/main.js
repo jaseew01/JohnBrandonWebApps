@@ -1,5 +1,3 @@
-// Main file that loads things up.
-// Called from require.js
 require.config({
 	baseUrl: "app",
 	paths: {
